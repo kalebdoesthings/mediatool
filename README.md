@@ -54,4 +54,13 @@ python3 mediatool.py
 [t] TV Shows
     ├── Manual        | Use magnet links in this section
     └── RARBG Scrape  | Scrapes RARBG to find torrents for you
-```
+[s] Search
+    ├── [m] Movies    | Lets you search your media library for similar media file names
+    └── [q] Quit  | Goes back to main menu
+[e] Edit Config
+    ├── Allows you to edit your config
+[q] Quit
+    ├── Quits the menu
+    
+    
+```.
