@@ -44,15 +44,12 @@ FIRST_LAUNCH:
 ## Run
 python3 mediatool.py
 
-## Notes / Warnings
-- Keep config.ini private (do NOT commit it to GitHub).
-- Do not hardcode API keys in the code.
-- If you publish this repo, add config.ini to .gitignore.
+## How to navigate menu
 
-## Troubleshooting
-### "FIRST_LAUNCH KeyError"
-Your config.ini is missing [CONFIG] or FIRST_LAUNCH.
-Delete config.ini and rerun to regenerate it.
 
-### "Permission denied" creating folders
-Make sure your MEDIA_PATH exists and you have write permissions.
+## [m] Movies | Goes into movie part of menu
+  |─── Manual | Use magnet links in this section
+  |─── RARGB Scrape | Scrapes Rargb to find torrents for you
+## [t] TV Shows | Goes into movie part of menu
+  |─── Manual | Use magnet links in this section
+  |─── RARGB Scrape | Scrapes Rargb to find torrents for you
