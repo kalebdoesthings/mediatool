@@ -46,10 +46,9 @@ python3 mediatool.py
 
 ## How to navigate menu
 
-
-## [m] Movies | Goes into movie part of menu
+[m] Movies | Goes into movie part of menu
   |─── Manual | Use magnet links in this section
   |─── RARGB Scrape | Scrapes Rargb to find torrents for you
-## [t] TV Shows | Goes into movie part of menu
+[t] TV Shows | Goes into movie part of menu
   |─── Manual | Use magnet links in this section
   |─── RARGB Scrape | Scrapes Rargb to find torrents for you
