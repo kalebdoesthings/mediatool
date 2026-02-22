@@ -1,13 +1,6 @@
-# mediatool
-A simple python script to help download torrents for media
+# Mediatool 
 
-# Mediatool V2
-
-A terminal-based media helper that can:
-- Download movies via Real-Debrid magnet workflow
-- Create/organize folders for Movies and TV Shows
-- Auto-create TV show season folders using OMDb
-- Search your local movie library
+I made this to make torrenting media for my jellyfin server easier and i decided i would upload it here so anyone can use it.
 
 ## Requirements
 Python 3.9+ recommended
