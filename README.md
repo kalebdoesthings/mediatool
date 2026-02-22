@@ -1,9 +1,11 @@
 # Mediatool 
 
-I made this to make torrenting media for my jellyfin server easier and i decided i would upload it here so anyone can use it.
+I made this script to help me manage and organize media for my jellyfin server. Instead of having to juggle multiple tools and websites just to download 1 movie i decided i wanted to make a all in one tool to help me. It combines Real debrid downloads, omdb folder automation and library management into one clean cli. After i thought it was good enough i then decided to upload it here.
 
 ## Requirements
 Python 3.9+ recommended
+[Real Debrid Api Key](https://real-debrid.com/) (Its like 3$ for 15 days) 
+OMDB Api Key (Its free)
 
 ## Install
 ### 1) Clone
