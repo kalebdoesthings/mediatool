@@ -40,7 +40,8 @@ def setup():
 
     print("Path Example: /home/user/media")    
     mediapath = input("Media Path (This will create a movies and tvshow directory): " )
-    
+    os.system(f"mkdir {mediapath}/movies")
+    os.system(f"mkdir {mediapath}/tvshow")    
     config["CONFIG"]["MEDIA_PATH"] = mediapath
     with open("config.ini", "w") as configfile:
         config.write(configfile)
