@@ -1,24 +1,29 @@
-# Mediatool 
+# Mediatool
 
-I made this script to help me manage and organize media for my jellyfin server. Instead of having to juggle multiple tools and websites just to download 1 movie i decided i wanted to make a all in one tool to help me. It combines Real debrid downloads, omdb folder automation and library management into one clean cli. After i thought it was good enough i then decided to upload it here.
+I created this script to help manage and organize media for my Jellyfin server. Instead of juggling multiple tools and websites just to download a single movie, I wanted an all-in-one CLI utility that streamlined the entire process.
+
+Mediatool combines Real-Debrid downloads, OMDb folder automation, and local library management into a single, clean command-line interface. Once it was stable and working well, I decided to share it here so others can use or improve it.
+
+---
 
 ## Requirements
+
+- Python 3.9+ recommended  
+- [Real-Debrid API Key](https://real-debrid.com/) (~$3 for 15 days)  
+- OMDb API Key (Free)  
+
+---
+
+## Quick Install (One Command)
+
+On Linux (Debian/Ubuntu-based), copy and paste:
+
+```bash
+git clone https://github.com/kalebdoesthings/mediatool.git && \
+cd mediatool && \
+chmod +x setup.sh && \
+./setup.sh
 ```
-Python 3.9+ recommended
-[Real Debrid Api Key](https://real-debrid.com/) (Its like 3$ for 15 days) 
-OMDB Api Key (Its free)
-```
-## Install
-### 1) Clone
-git clone https://github.com/kalebdoesthings/mediatool.git
-cd mediatool
-
-### 2) Install Python packages
-pip install -r requirements.txt
-
-If you do not have a requirements.txt yet, install these:
-pip install colorama requests simple-term-menu pyfiglet thefuzz beautifulsoup4
-
 ## First Run Setup
 On first run, the tool will ask you for:
 - Real-Debrid API key
