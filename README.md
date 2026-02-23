@@ -71,4 +71,4 @@ python3 mediatool.py
     ├── Quits the menu
     
     
-```.
+```
