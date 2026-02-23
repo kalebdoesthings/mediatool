@@ -69,6 +69,7 @@ if FIRST_LAUNCH == "0":
 
 else:
     apikey = config["CONFIG"]["REAL_DEBRID_API_KEY"]
+    apikey2 = config["CONFIG"]["REAL_DEBRID_API_KEY"]
     omdbapikey = config["CONFIG"]["OMDB_API_KEY"]
     mediapath = config["CONFIG"]["MEDIA_PATH"]    
 
@@ -358,11 +359,24 @@ def scrape():
                 
                 payload = {"magnet": magnet}
                 response = requests.post(apiurl, data=payload, headers=headers)
-                data = json.loads(response.text)
+
+                print("RD addMagnet status:", response.status_code)
+                print("RD addMagnet body:", response.text)
+
+                try:
+                    data = response.json()
+                except:
+                    print("Non-JSON from Real-Debrid")
+                    return
+
+                if response.status_code not in (200,201) or "id" not in data:
+                    print("Real-Debrid error:", data)
+                    return
+
                 torrentId = data["id"]
+                print("Real-Debrid torrentId:", torrentId)
                 print(torrentId)
                 print(response.text)
-
                 apiurl2 =  f"https://api.real-debrid.com/rest/1.0/torrents/selectFiles/{torrentId}"
                 print(apiurl2)
 
@@ -549,7 +563,6 @@ def tvshow():
         
                 magnetlink = input("Enter Magnet Link: ")
                     
-                apikey2 = "5AMHGCYIS6YMQ3IKEGJLQQ77J3HSPGPA5OS6QOFE2VXYFWA5QGTA"
             
                 print(apikey2)
                 headers =  {
