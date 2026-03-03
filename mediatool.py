@@ -51,12 +51,36 @@ def rd_add_and_download(magnetlink, headers, download_path, background=False):
         print(selectFilesResponse.text)
 
         apiurl3 = f"https://api.real-debrid.com/rest/1.0/torrents/info/{torrentId}"
-        torrentDetails = requests.get(apiurl3, headers=headers)
 
-        try:
-            getLink = torrentDetails.json()
-        except (ValueError, json.JSONDecodeError):
-            print(f"{Fore.RED}Non-JSON response from torrent info{Style.RESET_ALL}")
+        # Poll until Real-Debrid has finished fetching the torrent
+        max_wait = 120  # seconds
+        poll_interval = 5
+        waited = 0
+        getLink = None
+
+        while waited < max_wait:
+            torrentDetails = requests.get(apiurl3, headers=headers)
+
+            try:
+                getLink = torrentDetails.json()
+            except (ValueError, json.JSONDecodeError):
+                print(f"{Fore.RED}Non-JSON response from torrent info{Style.RESET_ALL}")
+                return False
+
+            status = getLink.get("status", "")
+            print(f"RD torrent status: {status} (waited {waited}s)")
+
+            if status == "downloaded":
+                break
+            elif status in ("magnet_error", "error", "virus", "dead"):
+                print(f"{Fore.RED}Real-Debrid torrent failed: {status}{Style.RESET_ALL}")
+                return False
+
+            time.sleep(poll_interval)
+            waited += poll_interval
+
+        if getLink is None or getLink.get("status") != "downloaded":
+            print(f"{Fore.RED}Timed out waiting for Real-Debrid to download torrent ({max_wait}s){Style.RESET_ALL}")
             return False
 
         linkToUnrestrict = getLink.get("links", [])
